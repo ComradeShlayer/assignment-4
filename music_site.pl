@@ -75,8 +75,26 @@ trackList(hamilton, [song(alexander_hamilton, 236), song(aaron_burr_sir, 156), s
 %%%%% SECTION: helpers
 %%%%% Add the predicates isSong(Song), songLength(Song, Length), onAlbum(Song, Album), albumLength(Album, Length), and atNamedIndex(List, Entry, Element)
 %%%%% Another other helper predicates you wish to add for your lexicon or the parser should be added here
+isSong(Song) :-
+   trackList(_, Tracklist),
+   member(song(Song, _), Tracklist).
 
+songLength(Song, Length) :-
+   trackList(_, Tracklist),
+   member(song(Song, Length), Tracklist).
 
+onAlbum(Song, Album) :-
+   trackList(Album, Tracklist),
+   member(song(Song, _), Tracklist).
+
+albumLength(Album, Length) :-
+   trackList(Album, Tracklist),
+   albumLengthHelper(Tracklist, 0, Length).
+
+albumLengthHelper([], Length, Length).
+albumLengthHelper([song(_, Length) | Rest], Acc, Total) :-
+   Temp is Acc + Length,
+   albumLengthHelper(Rest, Temp, Total).
 
 %%%%% SECTION: articles
 %%%%% Put the rules/statements defining the proper_nouns below

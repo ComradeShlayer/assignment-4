@@ -123,15 +123,15 @@ proper_noun(Year) :- number(Year), albumYear(_, Year).
 
 %%%%% SECTION: common_nouns
 %%%%% Put the rules/statements defining the common_nouns below
-common_noun(album, What) :- albumArtist(What, _).
-common_noun(record, What) :- albumArtist(What, _).
-common_noun(artist, What) :- albumArtist(_, What).
-common_noun(song, What) :- isSong(What).
-common_noun(track, What) :- isSong(What).
-common_noun(genre, What) :- albumGenre(_, What).
-common_noun(release_year, What) :- number(What), albumYear(_, What).
-common_noun(length, What) :- songLength(_, What).
-common_noun(length, What) :- albumLength(_, What).
+common_noun(album, X) :- albumArtist(X, _).
+common_noun(record, X) :- albumArtist(X, _).
+common_noun(artist, X) :- albumArtist(_, X).
+common_noun(song, X) :- isSong(X).
+common_noun(track, X) :- isSong(X).
+common_noun(genre, X) :- albumGenre(_, X).
+common_noun(release_year, X) :- albumYear(_, X).
+common_noun(length, X) :- songLength(_, X).
+common_noun(length, X) :- albumLength(_, X).
 
 %%%%% SECTION: adjectives
 %%%%% Put the rules/statements defining the adjectives below

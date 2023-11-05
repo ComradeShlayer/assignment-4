@@ -102,34 +102,46 @@ atNamedIndexHelper([Element|_], IndexName, Element, Index) :- orderNames(X), nth
 atNamedIndexHelper([_|T], IndexName, Element, Index) :- NewIndex is Index + 1, atNamedIndexHelper(T, IndexName, Element, NewIndex).
 
 nth([X|_], 0 , X) .
-nth([_|Xs], N , X) :-
+nth([_|T], N , X) :-
   N > 0 ,
   N1 is N-1 ,
-  nth(Xs, N1, X).
+  nth(T, N1, X).
 
 %%%%% SECTION: articles
 %%%%% Put the rules/statements defining the proper_nouns below
-
-
+article(a).
+article(any).
+article(an).
+article(the).
 
 %%%%% SECTION: proper_nouns
 %%%%% Put the rules/statements defining the proper_nouns below
-
-
+proper_noun(Album) :- albumArtist(Album, _).
+proper_noun(Artist) :- albumArtist(_, Artist).
+proper_noun(Song) :- isSong(Song).
+proper_noun(Year) :- number(Year), albumYear(_, Year).
 
 %%%%% SECTION: common_nouns
 %%%%% Put the rules/statements defining the common_nouns below
-
-
+common_noun(album, What) :- albumArtist(What, _).
+common_noun(record, What) :- albumArtist(What, _).
+common_noun(artist, What) :- albumArtist(_, What).
+common_noun(song, What) :- isSong(What).
+common_noun(track, What) :- isSong(What).
+common_noun(genre, What) :- albumGenre(_, What).
+common_noun(release_year, What) :- number(What), albumYear(_, What).
+common_noun(length, What) :- songLength(_, What).
+common_noun(length, What) :- albumLength(_, What).
 
 %%%%% SECTION: adjectives
 %%%%% Put the rules/statements defining the adjectives below
 
-
+adjective(_, _). %this line needs to be replaced; I just added it for testing nouns -Sean
 
 %%%%% SECTION: prepositions
 %%%%% Put the rules/statements defining the prepositions below
 
+preposition(_, _, _). %this line needs to be replaced; I just added it for testing nouns  -Sean
 
 
 %%%%% SECTION: PARSER

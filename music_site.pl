@@ -17,7 +17,7 @@
 %%%%% You do not have to add anything to this section, but feel free to change the currentYear value to test your program
 
 orderNames([first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, 
-            eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth, nineteenth, twentytieth]).
+            eleventh, twelfth, thirteenth, fourteenth, fifteenth, sixteenth, seventeenth, eighteenth, nineteenth, twentieth]).
 
 currentYear(2023).
 
@@ -85,7 +85,7 @@ songLength(Song, Length) :-
 
 onAlbum(Song, Album) :-
    trackList(Album, Tracklist),
-   member(song(Song, _), Tracklist).
+   member(song(Song, _), Tracklist).   
 
 albumLength(Album, Length) :-
    trackList(Album, Tracklist),
@@ -95,6 +95,17 @@ albumLengthHelper([], Length, Length).
 albumLengthHelper([song(_, Length) | Rest], Acc, Total) :-
    Temp is Acc + Length,
    albumLengthHelper(Rest, Temp, Total).
+
+atNamedIndex(List, IndexName, Element) :- atNamedIndexHelper(List, IndexName, Element, 0).
+
+atNamedIndexHelper([Element|_], IndexName, Element, Index) :- orderNames(X), nth(X, Index, IndexName).
+atNamedIndexHelper([_|T], IndexName, Element, Index) :- NewIndex is Index + 1, atNamedIndexHelper(T, IndexName, Element, NewIndex).
+
+nth([X|_], 0 , X) .
+nth([_|Xs], N , X) :-
+  N > 0 ,
+  N1 is N-1 ,
+  nth(Xs, N1, X).
 
 %%%%% SECTION: articles
 %%%%% Put the rules/statements defining the proper_nouns below

@@ -24,7 +24,7 @@ currentYear(2023).
 %%%%% SECTION: database
 %%%%% Put statements for albumArtist, albumYear, albumGenre, and trackList below
 albumArtist(thriller, micheal_jackson).
-albumArtist(hotel_california, eagles).
+albumArtist(dark_side_of_the_moon, pink_floyd).
 albumArtist(rumours, fleetwood_mac).
 albumArtist(marshall_matters, eminem).
 albumArtist(no_string_attached, nsync).
@@ -33,9 +33,11 @@ albumArtist(all_the_right_reasons, nickleback).
 albumArtist(fearless, taylor_swift).
 albumArtist(speakerboxxx, outkast).
 albumArtist(hamilton, cast_recording).
+albumArtist(symphony_no_9, ludwig_van_beethoven).
+albumArtist(forever, mack_fraser).
 
 albumYear(thriller, 1982).
-albumYear(hotel_california, 1976).
+albumYear(dark_side_of_the_moon, 1973).
 albumYear(rumours, 1977).
 albumYear(marshall_matters, 2000).
 albumYear(no_string_attached, 2000).
@@ -44,10 +46,12 @@ albumYear(all_the_right_reasons, 2005).
 albumYear(fearless, 2008).
 albumYear(speakerboxxx, 2003).
 albumYear(hamilton, 2015).
+albumYear(symphony_no_9, 1824).
+albumYear(forever, 2023).
 
 albumGenre(thriller, disco).
 albumGenre(thriller, pop).
-albumGenre(hotel_california, rock).
+albumGenre(dark_side_of_the_moon, rock).
 albumGenre(rumours, alternative).
 albumGenre(rumours, rock).
 albumGenre(rumours, folk).
@@ -60,9 +64,11 @@ albumGenre(speakerboxxx, rap).
 albumGenre(speakerboxxx, hip_hop).
 albumGenre(hamilton, theater).
 albumGenre(hamilton, musical).
+albumGenre(symphony_no_9, orchestral).
+albumGenre(forever, metal).
 
 trackList(thriller, [song(the_girl_is_mine, 222), song(baby_be_mine, 260), song(human_nature, 246), song(pretty_young_thing, 237)]).
-trackList(hotel_california, [song(hotel_california, 390), song(new_kid_in_town, 304), song(life_in_the_fastlan, 286), song(wasted_time, 295), song(victim_of_love, 251)]).
+trackList(dark_side_of_the_moon, [song(time, 426), song(money, 392), song(us_and_them, 461), song(eclipse, 124)]).
 trackList(rumours, [song(the_chain, 270), song(i_dont_want_to_know, 195), song(songbird, 201), song(oh_daddy, 236)]).
 trackList(marshall_matters, [song(bitch_please_ii, 288), song(remember_me, 218), song(amityville, 255), song(stan, 404), song(kim, 378), song(under_the_influence, 322), song(the_way_i_am, 290), song(im_back, 310)]).
 trackList(no_string_attached, [song(bye_bye_bye, 199), song(its_gonna_be_me, 191), song(space_cowboy, 261)]).
@@ -71,6 +77,8 @@ trackList(all_the_right_reasons, [song(savin_me, 218), song(animals, 187), song(
 trackList(fearless, [song(breathe, 264), song(you_belong_with_me, 231), song(the_way_i_loved_you, 245)]).
 trackList(speakerboxxx, [song(bust, 189), song(bowtie, 236), song(reset, 276)]).
 trackList(hamilton, [song(alexander_hamilton, 236), song(aaron_burr_sir, 156), song(my_shot, 333)]).
+trackList(symphony_no_9, [song(allegro_ma_non_troppo, 936), song(molto_vivace, 626), song(adagio_molto_e_cantabile, 954), song(finale, 1460)]).
+trackList(forever, [song(how_many_times, 294)]).
 
 %%%%% SECTION: helpers
 %%%%% Add the predicates isSong(Song), songLength(Song, Length), onAlbum(Song, Album), albumLength(Album, Length), and atNamedIndex(List, Entry, Element)
@@ -136,7 +144,12 @@ common_noun(length, X) :- albumLength(_, X).
 %%%%% SECTION: adjectives
 %%%%% Put the rules/statements defining the adjectives below
 
-adjective(_, _). %this line needs to be replaced; I just added it for testing nouns -Sean
+adjective(short, X) :- songLength(X, T), T < 180.
+adjective(short, X) :- albumLength(X, T), T < 600.
+adjective(long, X) :- songLength(X, T), T >= 360.
+adjective(long, X) :- albumLength(X, T), T >= 3600.
+adjective(old, X) :- albumYear(X, Y), Y < 2000.
+adjective(new, X) :- albumYear(X, Y), currentYear(C), Y is C.
 
 %%%%% SECTION: prepositions
 %%%%% Put the rules/statements defining the prepositions below

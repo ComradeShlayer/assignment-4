@@ -157,6 +157,9 @@ adjective(G, X) :- albumGenre(X, G).
 adjective(G, X) :- albumGenre(Y, G), trackList(Y, Z), member(song(X, _), Z).
 adjective(G, X) :- albumGenre(Y, G), albumArtist(Y, X).
 
+adjective(A, X) :- albumArtist(X, A).
+adjective(A, X) :- albumArtist(Y, A), trackList(Y, Z), member(song(X, _), Z).
+
 %%%%% SECTION: prepositions
 %%%%% Put the rules/statements defining the prepositions below
 

@@ -153,28 +153,9 @@ adjective(old, X) :- albumYear(Z, Y), Y < 2000, trackList(Z, A), member(song(X, 
 adjective(new, X) :- albumYear(X, Y), currentYear(C), Y is C.
 adjective(new, X) :- albumYear(Z, Y), currentYear(C), Y is C, trackList(Z, A), member(song(X, _), A).
 
-adjective(disco, X) :- albumGenre(X, disco).
-adjective(disco, X) :- albumGenre(Y, disco), trackList(Y, Z), member(song(X, _), Z).
-adjective(pop, X) :- albumGenre(X, pop).
-adjective(pop, X) :- albumGenre(Y, pop), trackList(Y, Z), member(song(X, _), Z).
-adjective(rock, X) :- albumGenre(X, rock).
-adjective(rock, X) :- albumGenre(Y, rock), trackList(Y, Z), member(song(X, _), Z).
-adjective(alternative, X) :- albumGenre(X, alternative).
-adjective(alternative, X) :- albumGenre(Y, alternative), trackList(Y, Z), member(song(X, _), Z).
-adjective(folk, X) :- albumGenre(X, folk).
-adjective(folk, X) :- albumGenre(Y, folk), trackList(Y, Z), member(song(X, _), Z).
-adjective(rap, X) :- albumGenre(X, rap).
-adjective(rap, X) :- albumGenre(Y, rap), trackList(Y, Z), member(song(X, _), Z).
-adjective(hip_hop, X) :- albumGenre(X, hip_hop).
-adjective(hip_hop, X) :- albumGenre(Y, hip_hop), trackList(Y, Z), member(song(X, _), Z).
-adjective(theater, X) :- albumGenre(X, theater).
-adjective(theater, X) :- albumGenre(Y, theater), trackList(Y, Z), member(song(X, _), Z).
-adjective(musical, X) :- albumGenre(X, musical).
-adjective(musical, X) :- albumGenre(Y, musical), trackList(Y, Z), member(song(X, _), Z).
-adjective(orchestral, X) :- albumGenre(X, orchestral).
-adjective(orchestral, X) :- albumGenre(Y, orchestral), trackList(Y, Z), member(song(X, _), Z).
-adjective(metal, X) :- albumGenre(X, metal).
-adjective(metal, X) :- albumGenre(Y, metal), trackList(Y, Z), member(song(X, _), Z).
+adjective(G, X) :- albumGenre(X, G).
+adjective(G, X) :- albumGenre(Y, G), trackList(Y, Z), member(song(X, _), Z).
+adjective(G, X) :- albumGenre(Y, G), albumArtist(Y, X).
 
 %%%%% SECTION: prepositions
 %%%%% Put the rules/statements defining the prepositions below

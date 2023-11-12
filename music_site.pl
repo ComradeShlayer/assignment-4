@@ -172,12 +172,12 @@ preposition(released_in, X, Y) :- albumYear(Z, Y), onAlbum(X, Z).
 preposition(released_before, X, Y) :- albumYear(X, A), albumYear(Y, B), A < B.
 preposition(released_after, X, Y) :- albumYear(X, A), albumYear(Y, B), A > B.
 
-preposition(of, Genre, Album) :- albumGenre(Album, Genre).
-preposition(of, Genre, Song) :- albumGenre(Album, Genre), onAlbum(Song, Album).
-preposition(of, Year, Album) :- albumYear(Album, Year).
-preposition(of, Year, Song) :- albumYear(Album, Year), onAlbum(Song, Album).
-preposition(of, Length, Album) :- albumLength(Album, Length).
-preposition(of, Length, Song) :- songLength(Song, Length).
+preposition(of, X, Y) :- albumGenre(Y, X).
+preposition(of, X, Y) :- albumGenre(Z, X), onAlbum(Y, Z).
+preposition(of, X, Z) :- albumYear(Z, X).
+preposition(of, X, Y) :- albumYear(Z, X), onAlbum(Y, Z).
+preposition(of, X, Y) :- albumLength(Y, X).
+preposition(of, X, Y) :- songLength(Y, X).
 
 %%%%% SECTION: PARSER
 %%%%% For testing your lexicon for question 3, we will use the default parser initially given to you.

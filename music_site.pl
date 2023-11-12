@@ -160,6 +160,8 @@ adjective(G, X) :- albumGenre(Y, G), albumArtist(Y, X).
 adjective(A, X) :- albumArtist(X, A).
 adjective(A, X) :- albumArtist(Y, A), trackList(Y, Z), member(song(X, _), Z).
 
+adjective(P, X) :- trackList(A, B), atNamedIndex(B, P, Y), Y = song(X, _).
+/* trackList(A, B), atNamedIndex(B, P, X).*/
 %%%%% SECTION: prepositions
 %%%%% Put the rules/statements defining the prepositions below
 

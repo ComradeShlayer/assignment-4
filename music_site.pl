@@ -150,6 +150,17 @@ adjective(long, X) :- songLength(X, T), T >= 360.
 adjective(long, X) :- albumLength(X, T), T >= 3600.
 adjective(old, X) :- albumYear(X, Y), Y < 2000.
 adjective(new, X) :- albumYear(X, Y), currentYear(C), Y is C.
+adjective(disco, X) :- albumGenre(X, disco).
+adjective(pop, X) :- albumGenre(X, pop).
+adjective(rock, X) :- albumGenre(X, rock).
+adjective(alternative, X) :- albumGenre(X, alternative).
+adjective(folk, X) :- albumGenre(X, folk).
+adjective(rap, X) :- albumGenre(X, rap).
+adjective(hip_hop, X) :- albumGenre(X, hip_hop).
+adjective(theater, X) :- albumGenre(X, theater).
+adjective(musical, X) :- albumGenre(X, musical).
+adjective(orchestral, X) :- albumGenre(X, orchestral).
+adjective(metal, X) :- albumGenre(X, metal).
 
 %%%%% SECTION: prepositions
 %%%%% Put the rules/statements defining the prepositions below

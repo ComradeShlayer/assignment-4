@@ -149,7 +149,9 @@ adjective(short, X) :- albumLength(X, T), T < 600.
 adjective(long, X) :- songLength(X, T), T >= 360.
 adjective(long, X) :- albumLength(X, T), T >= 3600.
 adjective(old, X) :- albumYear(X, Y), Y < 2000.
+adjective(old, X) :- albumYear(Z, Y), Y < 2000, trackList(Z, A), member(song(X, _), A).
 adjective(new, X) :- albumYear(X, Y), currentYear(C), Y is C.
+adjective(new, X) :- albumYear(Z, Y), currentYear(C), Y is C, trackList(Z, A), member(song(X, _), A).
 
 adjective(disco, X) :- albumGenre(X, disco).
 adjective(disco, X) :- albumGenre(Y, disco), trackList(Y, Z), member(song(X, _), Z).

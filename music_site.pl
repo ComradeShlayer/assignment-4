@@ -169,6 +169,10 @@ preposition(by, X, Y) :- albumArtist(X, Y).
 preposition(by, X, Y) :- albumArtist(Z, Y), onAlbum(X, Z).
 preposition(released_in, X, Y) :- albumYear(X, Y).
 preposition(released_in, X, Y) :- albumYear(Z, Y), onAlbum(X, Z).
+preposition(released_before, X, Y) :- albumYear(X, A), albumYear(Y, B), A < B.
+preposition(released_after, X, Y) :- albumYear(X, A), albumYear(Y, B), A > B.
+
+/*preposition(of, X, Y) :- albumLength(X, Y), write("X "), write(X), write(" Y "), write(Y), write(albumLength(X, Y)), nl.
 /*preposition(_, _, _). %this line needs to be replaced; I just added it for testing nouns  -Sean*/
 
 

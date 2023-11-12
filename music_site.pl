@@ -161,7 +161,7 @@ adjective(A, X) :- albumArtist(X, A).
 adjective(A, X) :- albumArtist(Y, A), trackList(Y, Z), member(song(X, _), Z).
 
 adjective(P, X) :- trackList(A, B), atNamedIndex(B, P, Y), Y = song(X, _).
-/* trackList(A, B), atNamedIndex(B, P, X).*/
+
 %%%%% SECTION: prepositions
 %%%%% Put the rules/statements defining the prepositions below
 preposition(on, X, Y) :- onAlbum(X, Y).
@@ -172,9 +172,12 @@ preposition(released_in, X, Y) :- albumYear(Z, Y), onAlbum(X, Z).
 preposition(released_before, X, Y) :- albumYear(X, A), albumYear(Y, B), A < B.
 preposition(released_after, X, Y) :- albumYear(X, A), albumYear(Y, B), A > B.
 
-/*preposition(of, X, Y) :- albumLength(X, Y), write("X "), write(X), write(" Y "), write(Y), write(albumLength(X, Y)), nl.
-/*preposition(_, _, _). %this line needs to be replaced; I just added it for testing nouns  -Sean*/
-
+preposition(of, Genre, Album) :- albumGenre(Album, Genre).
+preposition(of, Genre, Song) :- albumGenre(Album, Genre), onAlbum(Song, Album).
+preposition(of, Year, Album) :- albumYear(Album, Year).
+preposition(of, Year, Song) :- albumYear(Album, Year), onAlbum(Song, Album).
+preposition(of, Length, Album) :- albumLength(Album, Length).
+preposition(of, Length, Song) :- songLength(Song, Length).
 
 %%%%% SECTION: PARSER
 %%%%% For testing your lexicon for question 3, we will use the default parser initially given to you.

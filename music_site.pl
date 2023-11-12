@@ -166,8 +166,9 @@ adjective(P, X) :- trackList(A, B), atNamedIndex(B, P, Y), Y = song(X, _).
 %%%%% Put the rules/statements defining the prepositions below
 preposition(on, X, Y) :- onAlbum(X, Y).
 preposition(by, X, Y) :- albumArtist(X, Y).
-preposition(by, Song, Artist) :- albumArtist(Album, Artist), onAlbum(Song, Album).
-
+preposition(by, X, Y) :- albumArtist(Z, Y), onAlbum(X, Z).
+preposition(released_in, X, Y) :- albumYear(X, Y).
+preposition(released_in, X, Y) :- albumYear(Z, Y), onAlbum(X, Z).
 /*preposition(_, _, _). %this line needs to be replaced; I just added it for testing nouns  -Sean*/
 
 

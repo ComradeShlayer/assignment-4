@@ -50,8 +50,8 @@ what([a, third, song, on, an, album], A).
 
 
 %%%%%% QUERY 8
-%% Description: Looks for the genre(s) of the album released in 1977. More will enumerate all of them.
-what([the, genre, of, the, album, released_in, 1977], A).
+%% Description: Looks for the genre(s) of the album released in 2008. More will enumerate all of them.
+what([the, genre, of, the, album, released_in, 2008], A).
 
 
 %%%%%% QUERY 9

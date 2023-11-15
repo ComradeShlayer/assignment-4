@@ -192,18 +192,15 @@ A = adagio_molto_e_cantabile
 Yes (0.03s cpu, solution 11, maybe more)
 No (0.03s cpu)
 
-what([the, genre, of, the, album, released_in, 1977], A).
-A = rock
+what([the, genre, of, the, album, released_in, 2008], A).
+A = pop
 Yes (0.00s cpu, solution 1, maybe more)
-A = alternative
+A = pop
 Yes (0.02s cpu, solution 2, maybe more)
-A = rock
+A = pop
 Yes (0.02s cpu, solution 3, maybe more)
-A = folk
-Yes (0.02s cpu, solution 4, maybe more)
-A = rock
-Yes (0.03s cpu, solution 5, maybe more)
 No (0.03s cpu)
+
 
 what([the, length, of, a, new, album], L).
 L = 294

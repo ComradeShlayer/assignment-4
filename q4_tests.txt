@@ -2,9 +2,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Sean Adlam  500787559
+%%%%% NAME: Max Shlayer 501017377
+%%%%% NAME: Razz Yau    501048542
 %
 % Add your test queries below, along with a description of the test you are performing.
 % The format can look as follows
@@ -15,52 +15,50 @@
 %
 
 %%%%%% QUERY 1
-%% Description:
-
+%% Description: Checks for any album under 10 minutes long. More will enumerate all of them.
+what([a, short, album], A).
 
 
 %%%%%% QUERY 2
-%% Description:
-
+%% Description: Checks for a song longer than 6 minutes, which was released before the year 2000. More will enumerate all of them.
+what([an, old, long, song], S).
 
 
 %%%%%% QUERY 3
-%% Description:
-
+%% Description: Returns the genre of the song by Mack Fraser that was released this year. There should only be one answer in our knowledge base.
+what([the, genre, of, the, new, mack_fraser, song], G).
 
 
 %%%%%% QUERY 4
-%% Description:
-
+%% Description: Checks for an album released after Hamilton (Testing proper noun comparison). More will enumerate all of them.
+what([an, album, released_after, hamilton], A).
 
 
 %%%%%% QUERY 5
-%% Description:
-
+%% Description: Checks for any songs that were released after the album all_the_right_reasons. More will enumerate all of them.
+what([a, song, on, an, album, released_after, all_the_right_reasons], S).
 
 
 %%%%%% QUERY 6
-%% Description:
-
+%% Description: Looks for the second track on an album released before 2000. More will enumerate all of them.
+what([the, second, track, on, an, old, album], S).
 
 
 %%%%%% QUERY 7
-%% Description:
-
+%% Description: Looks for albums with at least three tracks, and return the name of the third track. More will enumerate all of them.
+what([a, third, song, on, an, album], A).
 
 
 %%%%%% QUERY 8
-%% Description:
-
+%% Description: Looks for the genre(s) of the album released in 1977. More will enumerate all of them.
+what([the, genre, of, the, album, released_in, 1977], A).
 
 
 %%%%%% QUERY 9
-%% Description:
-
+%% Description: Returns the length of an album released this year. More will enumerate all of them.
+what([the, length, of, a, new, album], L).
 
 
 %%%%%% QUERY 10
-%% Description:
-
-
-
+%% Description: Returns the genre(s) of an album released before the year 2000. More will enumerate all of them.
+what([the, genre, of, an, old, album], G).
